@@ -28,19 +28,19 @@ For Laravel 5.5, 5.6, or 5.7~, 9:
 1. Open config/app.php and add this line to your Service Providers Array.
 
 ```php
-Darryldecode\Cart\CartServiceProvider::class
+Jump\LaravelShoppingCart\CartServiceProvider::class
 ```
 
 2. Open config/app.php and add this line to your Aliases
 
 ```php
-  'Cart' => Darryldecode\Cart\Facades\CartFacade::class
+  'Cart' => Jump\LaravelShoppingCart\Facades\CartFacade::class
 ```
 
 3. Optional configuration file (useful if you plan to have full control)
 
 ```php
-php artisan vendor:publish --provider="Darryldecode\Cart\CartServiceProvider" --tag="config"
+php artisan vendor:publish --provider="Jump\LaravelShoppingCart\CartServiceProvider" --tag="config"
 ```
 
 ## HOW TO USE
@@ -450,7 +450,7 @@ by adding 'order' parameter in CartCondition.
 ```php
 
 // add single condition on a cart bases
-$condition = new \Darryldecode\Cart\CartCondition(array(
+$condition = new \Jump\LaravelShoppingCart\CartCondition(array(
     'name' => 'VAT 12.5%',
     'type' => 'tax',
     'target' => 'subtotal', // this condition will be applied to cart's subtotal when getSubTotal() is called.
@@ -465,14 +465,14 @@ Cart::condition($condition);
 Cart::session($userId)->condition($condition); // for a speicifc user's cart
 
 // or add multiple conditions from different condition instances
-$condition1 = new \Darryldecode\Cart\CartCondition(array(
+$condition1 = new \Jump\LaravelShoppingCart\CartCondition(array(
     'name' => 'VAT 12.5%',
     'type' => 'tax',
     'target' => 'subtotal', // this condition will be applied to cart's subtotal when getSubTotal() is called.
     'value' => '12.5%',
     'order' => 2
 ));
-$condition2 = new \Darryldecode\Cart\CartCondition(array(
+$condition2 = new \Jump\LaravelShoppingCart\CartCondition(array(
     'name' => 'Express Shipping $15',
     'type' => 'shipping',
     'target' => 'subtotal', // this condition will be applied to cart's subtotal when getSubTotal() is called.
@@ -486,7 +486,7 @@ Cart::condition($condition2);
 // will also be affected as getTotal() depends in getSubTotal() which is the subtotal.
 
 // add condition to only apply on totals, not in subtotal
-$condition = new \Darryldecode\Cart\CartCondition(array(
+$condition = new \Jump\LaravelShoppingCart\CartCondition(array(
     'name' => 'Express Shipping $15',
     'type' => 'shipping',
     'target' => 'total', // this condition will be applied to cart's total when getTotal() is called.
@@ -552,7 +552,7 @@ Now let's add condition on an item.
 ```php
 
 // lets create first our condition instance
-$saleCondition = new \Darryldecode\Cart\CartCondition(array(
+$saleCondition = new \Jump\LaravelShoppingCart\CartCondition(array(
             'name' => 'SALE 5%',
             'type' => 'tax',
             'value' => '-5%',
@@ -572,7 +572,7 @@ $product = array(
 Cart::add($product);
 
 // you may also add multiple condition on an item
-$itemCondition1 = new \Darryldecode\Cart\CartCondition(array(
+$itemCondition1 = new \Jump\LaravelShoppingCart\CartCondition(array(
     'name' => 'SALE 5%',
     'type' => 'sale',
     'value' => '-5%',
@@ -582,7 +582,7 @@ $itemCondition2 = new CartCondition(array(
     'type' => 'promo',
     'value' => '-25',
 ));
-$itemCondition3 = new \Darryldecode\Cart\CartCondition(array(
+$itemCondition3 = new \Jump\LaravelShoppingCart\CartCondition(array(
     'name' => 'MISC',
     'type' => 'misc',
     'value' => '+10',
@@ -846,7 +846,7 @@ $this->app['wishlist'] = $this->app->share(function($app)
 		});
 
 // for 5.4 or newer
-use Darryldecode\Cart\Cart;
+use Jump\LaravelShoppingCart\Cart;
 use Illuminate\Support\ServiceProvider;
 
 class WishListProvider extends ServiceProvider
@@ -1143,7 +1143,7 @@ namespace App\Cart;
 
 use Carbon\Carbon;
 use Cookie;
-use Darryldecode\Cart\CartCollection;
+use Jump\LaravelShoppingCart\CartCollection;
 
 class CacheStorage
 {
@@ -1186,7 +1186,7 @@ class CacheStorage
 
 To make this the cart's default storage, let's update the cart's configuration file.
 First, let us publish first the cart config file for us to enable to override it.
-`php artisan vendor:publish --provider="Darryldecode\Cart\CartServiceProvider" --tag="config"`
+`php artisan vendor:publish --provider="Jump\LaravelShoppingCart\CartServiceProvider" --tag="config"`
 
 after running that command, there should be a new file on your config folder name `shopping_cart.php`
 
@@ -1199,7 +1199,7 @@ to your cart instance by injecting it to the service provider of your wishlist c
 to use your custom storage. See below:
 
 ```php
-use Darryldecode\Cart\Cart;
+use Jump\LaravelShoppingCart\Cart;
 use Illuminate\Support\ServiceProvider;
 
 class WishListProvider extends ServiceProvider

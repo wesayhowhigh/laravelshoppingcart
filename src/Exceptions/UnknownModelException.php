@@ -1,6 +1,6 @@
 <?php
 
-namespace Darryldecode\Cart\Exceptions;
+namespace Jump\LaravelShoppingCart\Exceptions;
 
 class UnknownModelException extends \Exception
 { }

@@ -6,9 +6,9 @@
  * Time: 6:17 PM
  */
 
-use Darryldecode\Cart\Cart;
+use Jump\LaravelShoppingCart\Cart;
 use Mockery as m;
-use Darryldecode\Cart\CartCondition;
+use Jump\LaravelShoppingCart\CartCondition;
 use Darryldecode\Tests\helpers\MockProduct;
 
 require_once __DIR__ . '/helpers/SessionMock.php';
@@ -17,7 +17,7 @@ class ItemTest extends PHPUnit\Framework\TestCase
 {
 
     /**
-     * @var Darryldecode\Cart\Cart
+     * @var Jump\LaravelShoppingCart\Cart
      */
     protected $cart;
 
@@ -69,7 +69,7 @@ class ItemTest extends PHPUnit\Framework\TestCase
 
     public function test_item_get_conditions_with_conditions()
     {
-        $itemCondition1 = new \Darryldecode\Cart\CartCondition(array(
+        $itemCondition1 = new \Jump\LaravelShoppingCart\CartCondition(array(
             'name' => 'SALE 5%',
             'type' => 'sale',
             'target' => 'item',
@@ -101,7 +101,7 @@ class ItemTest extends PHPUnit\Framework\TestCase
 
     public function test_it_will_throw_an_exception_when_a_non_existing_model_is_being_associated()
     {
-        $this->expectException(\Darryldecode\Cart\Exceptions\UnknownModelException::class);
+        $this->expectException(\Jump\LaravelShoppingCart\Exceptions\UnknownModelException::class);
         $this->expectExceptionMessage('The supplied model SomeModel does not exist.');
 
         $this->cart->add(1, 'Test item', 1, 10.00)->associate('SomeModel');

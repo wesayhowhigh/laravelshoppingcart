@@ -1,4 +1,4 @@
-<?php namespace Darryldecode\Cart\Helpers;
+<?php namespace Jump\LaravelShoppingCart\Helpers;
 
 /**
  * Created by PhpStorm.

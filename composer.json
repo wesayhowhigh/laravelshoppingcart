@@ -30,17 +30,17 @@
     },
     "autoload": {
         "psr-4": {
-            "Darryldecode\\": "src/Darryldecode"
+            "Jump\\LaravelShoppingCart\\": "src"
         }
     },
     "minimum-stability": "dev",
     "extra": {
         "laravel": {
             "providers": [
-                "Darryldecode\\Cart\\CartServiceProvider"
+                "Jump\\LaravelShoppingCart\\CartServiceProvider"
             ],
             "aliases": {
-                "Cart": "Darryldecode\\Cart\\Facades\\CartFacade"
+                "Cart": "Jump\\LaravelShoppingCart\\Facades\\CartFacade"
             }
         }
     }

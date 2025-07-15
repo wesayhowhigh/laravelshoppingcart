@@ -1,4 +1,4 @@
-<?php namespace Darryldecode\Cart\Exceptions;
+<?php namespace Jump\LaravelShoppingCart\Exceptions;
 
 /**
  * Created by PhpStorm.

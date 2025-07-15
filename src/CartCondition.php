@@ -1,7 +1,7 @@
-<?php namespace Darryldecode\Cart;
-use Darryldecode\Cart\Exceptions\InvalidConditionException;
-use Darryldecode\Cart\Helpers\Helpers;
-use Darryldecode\Cart\Validators\CartConditionValidator;
+<?php namespace Jump\LaravelShoppingCart;
+use Jump\LaravelShoppingCart\Exceptions\InvalidConditionException;
+use Jump\LaravelShoppingCart\Helpers\Helpers;
+use Jump\LaravelShoppingCart\Validators\CartConditionValidator;
 
 /**
  * Created by PhpStorm.

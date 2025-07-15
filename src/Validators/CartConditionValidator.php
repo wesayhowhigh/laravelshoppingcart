@@ -1,4 +1,4 @@
-<?php namespace Darryldecode\Cart\Validators;
+<?php namespace Jump\LaravelShoppingCart\Validators;
 
 /**
  * Created by PhpStorm.

@@ -7,7 +7,7 @@
  * Time: 9:59 PM
  */
 
-use Darryldecode\Cart\Cart;
+use Jump\LaravelShoppingCart\Cart;
 use Mockery as m;
 use Darryldecode\Tests\helpers\MockProduct;
 
@@ -17,7 +17,7 @@ class CartTest extends PHPUnit\Framework\TestCase
 {
 
     /**
-     * @var Darryldecode\Cart\Cart
+     * @var Jump\LaravelShoppingCart\Cart
      */
     protected $cart;
 
@@ -132,7 +132,7 @@ class CartTest extends PHPUnit\Framework\TestCase
         // ItemAttributeCollection
         $item = $this->cart->get(456);
 
-        $this->assertInstanceOf('Darryldecode\Cart\ItemAttributeCollection', $item->attributes);
+        $this->assertInstanceOf('Jump\LaravelShoppingCart\ItemAttributeCollection', $item->attributes);
 
         // now lets update the item with its new attributes
         // when we get that item from cart, it should still be an instance of ItemAttributeCollection
@@ -144,7 +144,7 @@ class CartTest extends PHPUnit\Framework\TestCase
         );
         $this->cart->update(456, $updatedItem);
 
-        $this->assertInstanceOf('Darryldecode\Cart\ItemAttributeCollection', $item->attributes);
+        $this->assertInstanceOf('Jump\LaravelShoppingCart\ItemAttributeCollection', $item->attributes);
     }
 
     public function test_cart_items_attributes()
@@ -418,19 +418,19 @@ class CartTest extends PHPUnit\Framework\TestCase
 
     public function test_should_throw_exception_when_provided_invalid_values_scenario_one()
     {
-        $this->expectException('Darryldecode\Cart\Exceptions\InvalidItemException');
+        $this->expectException('Jump\LaravelShoppingCart\Exceptions\InvalidItemException');
         $this->cart->add(455, 'Sample Item', 100.99, 0, array());
     }
 
     public function test_should_throw_exception_when_provided_invalid_values_scenario_two()
     {
-        $this->expectException('Darryldecode\Cart\Exceptions\InvalidItemException');
+        $this->expectException('Jump\LaravelShoppingCart\Exceptions\InvalidItemException');
         $this->cart->add('', 'Sample Item', 100.99, 2, array());
     }
 
     public function test_should_throw_exception_when_provided_invalid_values_scenario_three()
     {
-        $this->expectException('Darryldecode\Cart\Exceptions\InvalidItemException');
+        $this->expectException('Jump\LaravelShoppingCart\Exceptions\InvalidItemException');
         $this->cart->add(523, '', 100.99, 2, array());
     }
 
